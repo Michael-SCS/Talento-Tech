@@ -49,6 +49,6 @@ plt.grid(True) #Agregar cuadrícula
 plt.show() #Mostrar gráfico
 
 #paso 5: Visualización de resultados
-sns.heatmap(df.pivot(index='año',columns='Fuente_energia',values='Generacion_mwh'),annot=True,fmt='d',cmap='YlGnBu') #Mapa de calor
+sns.heatmap(df.pivot(index='año',columns='Fuente_energia',values='Generacion_mwh'),annot=True,cmap='YlGnBu') #Mapa de calor
 plt.grid(True) #Agregar cuadrícula
 plt.show() #Mostrar gráfico
