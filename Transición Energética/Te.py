@@ -39,7 +39,7 @@ plt.show() #Mostrar gráfico
 
 
 #Paso 4: Comparar la generación de energía por fuente
-generacion_por_fuente = df.groupby['año','Fuente_energia']['Generacion_mwh'].sum().unstack() #Agrupar por año y fuente de energía
+generacion_por_fuente = df.groupby(['Año','Fuente_energia'])['Generacion_mwh'].sum().unstack() #Agrupar por año y fuente de energía
 
 generacion_por_fuente.plot(kind='bar',stacked=True,figsize=(12,8)) #Gráfico de barras apiladas
 plt.title('Generación de energía por fuente en Colombia') #Título del gráfico
@@ -49,6 +49,6 @@ plt.grid(True) #Agregar cuadrícula
 plt.show() #Mostrar gráfico
 
 #paso 5: Visualización de resultados
-sns.heatmap(df.pivot(index='año',columns='Fuente_energia',values='Generacion_mwh'),annot=True,cmap='YlGnBu') #Mapa de calor
+sns.heatmap(df.pivot(index='Año',columns='Fuente_energia',values='Generacion_mwh'),annot=True,cmap='YlGnBu') #Mapa de calor
 plt.grid(True) #Agregar cuadrícula
 plt.show() #Mostrar gráfico
