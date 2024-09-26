@@ -24,3 +24,7 @@ print(df)
 #Rellenar los valores nulos
 df_relleno = df.fillna({'Nombre': 'Desconocido', 'Edad': 0, 'Ciudad': 'Desconocido'})
 print (df_relleno)
+
+#Rellenar los valores nulos con el valor anterior
+df_relleno = df.bfill()
+print(df_relleno)
