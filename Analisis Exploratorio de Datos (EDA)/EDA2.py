@@ -18,4 +18,10 @@ print(empleados.describe()) #Genera resumen estadistico
 
 print('-------------------Salarios por Edades--------------------------')
 #Visualizar las edades y salarios
-empleados.plor(kind='scatter', x='Edad', y='Salario', color='blue',title='Salarios por Edades')
+empleados.plot(kind='scatter', x='Edad', y='Salario', color='blue',title='Salarios por Edades')
+plt.show()
+
+print('-------------------Histograma de la experiencia --------------------------')
+#Visualizar la experiencia
+empleados['Experiencia'].plot(kind='hist', color='green', title='Histograma de la Experiencia',bins=5,x='Años de experiencia')
+plt.show()
