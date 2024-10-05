@@ -1,11 +1,11 @@
-﻿Nombre;Apellido ;Edad;Peso;Altura;Ciudad;Fecha
-Maria;Perez;42;50;1,5;Manizales;26/09/2024
-Carlos andres;Gallego;35;65;1,78;Cali;27/09/2024
-Alejandra;Lopez;23;52;1,65;Medellin;28/09/2024
-Ruben;Gutiérrez;;70;1,68;Bogotá;29/09/2024
-Alejandro;Ramirez;21;82;1,59;Manizales;30/09/2024
-Alexander;Chica;36;71;1,67;Bogotá;1/10/2024
-Michael;hernandez;43;73;1,7;Barranquilla;2/10/2024
-Lina;Gallego;30;65;1,62;Choco;3/10/2024
-Juan pablo;Mora;32;90;1,68;Armenia;4/10/2024
-Daniela;Reyes;20;50;1,82;Manizales;5/10/2024
+﻿Nombre;Apellido ;Edad;Peso;Altura;Ciudad;Fecha;Categoria;Numero
+Maria;Perez;42;50;1,5;Manizales;26/09/2024;a;12
+Carlos andres;Gallego;35;65;1,78;Cali;27/09/2024;b;123
+Alejandra;Lopez;23;52;1,65;Medellin;28/09/2024;c;1234
+Ruben;Gutiérrez;34;70;1,68;Bogotá;29/09/2024;a;567
+Alejandro;Ramirez;21;82;1,59;Manizales;30/09/2024;b;897
+Alexander;Chica;36;71;1,67;Bogotá;1/10/2024;c;321
+Michael;hernandez;43;73;1,7;Barranquilla;2/10/2024;a;654
+Lina;Gallego;30;65;1,62;Choco;3/10/2024;b;987
+Juan pablo;Mora;32;90;1,68;Armenia;4/10/2024;c;4568
+Daniela;Reyes;20;50;1,82;Manizales;5/10/2024;a;4521
