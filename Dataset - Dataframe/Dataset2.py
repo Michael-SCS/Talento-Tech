@@ -36,7 +36,16 @@ plt.title('Distribución de la edad')
 plt.xlabel('Edad')
 plt.ylabel('Frecuencia')
 plt.show()
+
+
 plt.figure(figsize=(8,6))
 sns.scatterplot(x='age', y='fare', data=df)
 plt.title('Relación entre la edad y la tarifa')
+plt.show()
+
+
+sns.countplot(x='sex', hue='survived', data=df)
+plt.title('Sobrevivientes por género')
+plt.xlabel('Género')
+plt.ylabel('Total')
 plt.show()
