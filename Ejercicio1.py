@@ -15,7 +15,7 @@ df['Precio'] = df['Precio'].astype(int) # Convertir a entero
 df['Total'] = df['Precio']*df['Cantidad']
 print(df.head())
 
-#alcular sobre las ventas: el total de ventas, la media, valor máximo, valor mínimo 
+#Calcular sobre las ventas: el total de ventas, la media, valor máximo, valor mínimo 
 print('El total de ventas es ',df['Total'].sum())
 print('La media es ',df['Total'].mean())
 print('El valor máximo es ',df['Total'].max())
@@ -29,7 +29,16 @@ print(ventas_producto)
 #Filtrar los datos donde se vendieron más de 4 artículos.
 print('---------------------------------------------')
 articulos = df.groupby('Producto')['Cantidad'].sum().reset_index()
-if articulos['Cantidad'].sum() > 1000:
-    articulos4 = articulos[articulos['Cantidad'] > 1000]
+if articulos['Cantidad'].sum() >4:
+    articulos4 = articulos[articulos['Cantidad'] > 4]
 print(articulos)
 print(articulos4)
+
+#Visualizar el total de ventas por producto, podemos usar Matplotlib.
+print('---------------------------------------------')
+plt.figure(figsize=(10,5))
+plt.bar(ventas_producto['Producto'], ventas_producto['Total'])
+plt.xlabel('Producto')
+plt.ylabel('Total')
+plt.title('Total de ventas por producto')
+plt.show()
