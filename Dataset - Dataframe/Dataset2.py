@@ -49,3 +49,7 @@ plt.title('Sobrevivientes por género')
 plt.xlabel('Género')
 plt.ylabel('Total')
 plt.show()
+
+#Grafico categorico que permite mostrar diferentes graficos con variables categoricas
+
+sns.catplot(x='pclass', col='sex', hue='survived', data=df, kind='count')

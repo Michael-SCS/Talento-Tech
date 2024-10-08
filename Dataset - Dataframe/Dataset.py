@@ -25,3 +25,4 @@ plt.show()
 #Grafico de caja para identificar
 sns.boxplot(x='Categoria', y='Altura', data=dataset)
 plt.show()
+
