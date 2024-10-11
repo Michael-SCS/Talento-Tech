@@ -3,8 +3,8 @@ from scipy import stats
 # Datos
 datos = [15, 18, 21, 20, 36, 24, 18, 21, 30]
 # Media
-media = np.mean(datos)
-print(f"Media: {media}")
+Media = np.mean(datos)
+print(f"Media: {Media}")
 # Mediana
 mediana = np.median(datos)
 print(f"Mediana: {mediana}")
