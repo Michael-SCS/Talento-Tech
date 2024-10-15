@@ -17,3 +17,9 @@ print(df)
 correlation_matrix = df.corr()
 print('Esta es la matriz de correlación:')
 print(correlation_matrix)
+
+#Visualizar la matriz de correlación por un mapa de calor
+plt.figure(figsize=(10, 10))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title('Matriz de correlación')
+plt.show()
