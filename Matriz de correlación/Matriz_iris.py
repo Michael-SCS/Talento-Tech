@@ -18,5 +18,6 @@ print(correlation_matrix)
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-sns.heatmap(correlation_matrix, annot=True)
+plt.figure(figsize=(10, 10))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
 plt.show()
