@@ -14,5 +14,6 @@ correlation_mat = df[['Puntaje', 'Diferencia de goles']].corr()
 
 # Graficar el heatmap
 sns.heatmap(correlation_mat, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title('Correlación entre Puntaje y Diferencia de goles')
 plt.show()
 
