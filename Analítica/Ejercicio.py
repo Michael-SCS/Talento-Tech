@@ -1,64 +1,72 @@
-import numpy as np
 import pandas as pd
-import seaborn as sns
+import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
-#configurar el estilo de seaborn
-sns.set(style='whitegrid')
+# Configuración de estilo para seaborn
+sns.set(style="whitegrid")
 
-#Crear el dataset
-data ={
-    'Marca':['Audi', 'BMW', 'Chevrolet', 'Ford', 'Honda', 'Hyundai', 'Kia', 'Mazda', 'Mercedes', 'Nissan', 'Renault', 'Toyota', 'Volkswagen'],
-    'Modelo':['A3', 'Serie 3', 'Spark', 'Fiesta', 'Civic', 'Accent', 'Rio', '2', 'Clase A', 'Versa', 'Clio', 'Corolla', 'Golf'],
-    'Año':[2018, 2018, 2021, 2019, 2020, 2021, 2021, 2021, 2021, 2021, 2021, 2021, 2021],
-    'Precio':[35000, 45000, 20000, 25000, 30000, 18000, 19000, 20000, 50000, 22000, 21000, 30000, 40000],
-    'Kilometraje':[20000, 15000, 5000, 10000, 8000, 3000, 4000, 5000, 10000, 6000, 7000, 9000, 12000],
+# 1. Crear un DataFrame
+data = {
+    'Marca': ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan', 'BMW', 'Audi', 'Mercedes', 'Hyundai', 'Volkswagen'],
+    'Modelo': ['Corolla', 'Civic', 'Focus', 'Malibu', 'Altima', 'X5', 'A4', 'C-Class', 'Elantra', 'Golf'],
+    'Año': [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2021, 2022, 2023],
+    'Precio': [20000, 22000, 21000, 23000, 24000, 55000, 40000, 45000, 23000, 26000],
+    'Kilómetros': [50000, 30000, 15000, 40000, 20000, 25000, 10000, 8000, 5000, 2000]
 }
 
 df = pd.DataFrame(data)
 
-#Mostrar las primeras 5 filas del dataset
-print('Primeras 5 filas del dataset: ')
+# 2. Mostrar los primeros registros
+print("Primeros registros del DataFrame:")
 print(df.head())
 
-#Limpieza de datos - Verificar si hay valores nulos
-print('\n Conteo de valores nulos: ')
+# 3. Limpieza de Datos
+# Verificar datos nulos
+print("\nDatos nulos en el DataFrame:")
 print(df.isnull().sum())
 
-#Verificar datos duplicados
-print('\n Conteo de datos duplicados: ')
+# Verificar duplicados
+print("\nNúmero de duplicados en el DataFrame:")
 print(df.duplicated().sum())
 
-#Analisis descriptivo
-print('\n Descripción del dataset: ')
+# 4. Análisis Descriptivo
+print("\nEstadísticas descriptivas:")
 print(df.describe())
 
-#Realizar la visualización de la distribución de precios
+# 5. Visualización de la Distribución de Precios
 plt.figure(figsize=(10, 6))
-sns.histplot(df['Precio'], bins=30, kde=True, color='blue')
-plt.title('Distribución de Precios')
+sns.histplot(df['Precio'], bins=10, kde=True, color='blue')
+plt.title('Distribución de Precios de Automóviles')
 plt.xlabel('Precio')
-plt.ylabel('Conteo')
+plt.ylabel('Frecuencia')
+plt.grid()
+plt.show()
+
+# 6. Gráfico de Caja para Precios por Marca
+plt.figure(figsize=(12, 6))
+sns.boxplot(x='Marca', y='Precio', data=df)
+plt.title('Distribución de Precios por Marca')
+plt.xticks(rotation=45)
 plt.grid(axis='y')
 plt.show()
 
-#Analisis de correlación
-correlacion = df.corr()
-print('\n Matriz de correlación: ')
-print(correlacion)
+# 7. Análisis de Correlación
+correlation_matrix=df.select_dtypes(include=[np.number]).corr()
+print("\nMatriz de correlación:")
+print(correlation_matrix)
 
-#Visualización de la matriz de correlación
-plt.figure(figsize=(10, 8))
-sns.heatmap(correlacion, annot=True, cmap='coolwarm', fmt='.2f', square=True) 
+# 8. Visualización de la Matriz de Correlación
+plt.figure(figsize=(8, 6))
+sns.heatmap(correlation_matrix, annot=True, fmt=".2f", cmap='coolwarm', square=True)
 plt.title('Matriz de Correlación')
 plt.show()
 
-
-#Analisis de precios Vs kilometraje
+# 9. Análisis de Precio vs. Kilómetros
 plt.figure(figsize=(10, 6))
-sns.scatterplot(x='Kilometraje', y='Precio', data=df, hue='Marca', style='Marca')
-plt.title('Precio Vs Kilometraje')
-plt.xlabel('Kilometraje')
+sns.scatterplot(x='Kilómetros', y='Precio', data=df, hue='Marca', style='Marca', size=100)
+plt.title('Precio vs. Kilómetros')
+plt.xlabel('Kilómetros')
 plt.ylabel('Precio')
 plt.grid()
 plt.show()
