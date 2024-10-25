@@ -20,3 +20,45 @@ df = pd.DataFrame(data)
 #Mostrar las primeras 5 filas del dataset
 print('Primeras 5 filas del dataset: ')
 print(df.head())
+
+#Limpieza de datos - Verificar si hay valores nulos
+print('\n Conteo de valores nulos: ')
+print(df.isnull().sum())
+
+#Verificar datos duplicados
+print('\n Conteo de datos duplicados: ')
+print(df.duplicated().sum())
+
+#Analisis descriptivo
+print('\n Descripción del dataset: ')
+print(df.describe())
+
+#Realizar la visualización de la distribución de precios
+plt.figure(figsize=(10, 6))
+sns.histplot(df['Precio'], bins=30, kde=True, color='blue')
+plt.title('Distribución de Precios')
+plt.xlabel('Precio')
+plt.ylabel('Conteo')
+plt.grid(axis='y')
+plt.show()
+
+#Analisis de correlación
+correlacion = df.corr()
+print('\n Matriz de correlación: ')
+print(correlacion)
+
+#Visualización de la matriz de correlación
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlacion, annot=True, cmap='coolwarm', fmt='.2f', square=True) 
+plt.title('Matriz de Correlación')
+plt.show()
+
+
+#Analisis de precios Vs kilometraje
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='Kilometraje', y='Precio', data=df, hue='Marca', style='Marca')
+plt.title('Precio Vs Kilometraje')
+plt.xlabel('Kilometraje')
+plt.ylabel('Precio')
+plt.grid()
+plt.show()
